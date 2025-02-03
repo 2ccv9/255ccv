@@ -30,16 +30,14 @@ curl -L https://github.com/fidjcx/g1/raw/refs/heads/main/ffmpeg.7z -o /root/ytbd
 
 cp -f /root/ytbdl/resource/ytbdl.service /lib/systemd/system/
 systemctl start ytbdl
-systemctl status ytbdl
 systemctl enable ytbdl
 
 apt install nginx -y && rm -f /etc/nginx/sites-enabled/default && rm -f /etc/nginx/sites-available/default
 cp -f /root/ytbdl/resource/ytbdl.conf /etc/nginx/conf.d/
 systemctl restart nginx
-systemctl status nginx
 ufw allow 80 && ufw allow 443
 
-
+systemctl status ytbdl nginx
 
 
 
